@@ -1,0 +1,19 @@
+@charset "utf-8";
+@custom-media --tablet (width >= 51rem); /* 816px+ */
+@custom-media --desktop (width >= 64rem); /* 1024px+ */
+@custom-media --desktop-large (width >= 75rem); /* 1200px+ */
+@custom-media --desktop-xl (width >= 90rem); /* 1440px+ */
+@custom-media --desktop-xxl (width >= 112.5rem); /* 1800px+ */
+@custom-media --wide (width >= 125rem); /* 2000px+ */
+@custom-media --ultra-wide (width >= 250rem); /* 4000px+ */
+
+/* Breakpoints by range (da-a) */
+@custom-media --phone-small-only (width < 28.125rem); /* < 450px */
+@custom-media --phone-only (width < 51rem); /* < 768px */
+@custom-media --mobile-only (width < 64rem); /* 1023px */
+@custom-media --tablet-only (48rem <= width < 64rem); /* 768px-1023px */
+@custom-media --desktop-only (64rem <= width < 75rem); /* 1024px-1199px */
+@custom-media --desktop-large-only (75rem <= width < 90rem); /* 1200px-1439px */
+@custom-media --desktop-xl-only (90rem <= width < 112.5rem); /* 1440px-1799px */
+@custom-media --desktop-xxl-only (112.5rem <= width < 125rem); /* 1800px-1999px */
+@custom-media --wide-only (125rem <= width < 250rem); /* 2000px-3999px */
