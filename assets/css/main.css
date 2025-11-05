@@ -143,12 +143,12 @@
 
         /*------- CTAs ------- */
         /* CTA Primary / Dark Green */
-        --cta-primary-bg: var(--dark-green);
-        --cta-primary-color: var(--baby-powder);
-        --cta-primary-border: var(--dark-green);
-        --cta-primary-bg-hover: var(--baby-powder);
-        --cta-primary-color-hover: var(--dark-green);
-        --cta-primary-border-hover: var(--dark-green);
+        --cta-primary-bg: var(--black);
+        --cta-primary-color: var(--white);
+        --cta-primary-border: var(--black);
+        --cta-primary-bg-hover: var(--white);
+        --cta-primary-color-hover: var(--black);
+        --cta-primary-border-hover: var(--black);
 
         /*------ Scrollbar ------*/
         --sb-thumb-color: var(--black);
@@ -314,7 +314,7 @@
         .special-title {
             border: 1px solid var(--grey-goose);
             padding: 14px 36px;
-            border-radius: 32px;
+            border-radius: 50px;
         }
     }
 
@@ -526,22 +526,19 @@
         text-decoration: none;
         font-family: var(--first-font);
         letter-spacing: 0.04375rem;
-        font-weight: 400;
+        border-radius: 50px;
         transition: all 0.35s cubic-bezier(.2, .68, .29, .83);
 
         &.cta-solid {
             padding: 15px 30px;
-            font-size: 1rem;
-            text-transform: uppercase;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: -0.1px;
             border: 2px solid transparent;
             cursor: pointer;
 
             @media (--phone-small-only) {
                 padding: 10px 15px;
-            }
-
-            @media (--desktop) {
-                font-size: 1rem;
             }
 
             &.cta-primary {
@@ -570,74 +567,6 @@
                 }
             }
 
-            &.cta-reverse {
-                background-image: linear-gradient(to right, var(--cta-reverse-bg-hover) 0%, var(--cta-reverse-bg-hover) 50%, var(--cta-reverse-bg) 50%, var(--cta-reverse-bg) 100%);
-                background-size: 201% 100%;
-                background-position: 99.7% 0%;
-                color: var(--cta-reverse-color);
-                border-color: var(--cta-reverse-border);
-                transition: background-position 0.34s var(--ease-in-out), color 0.25s var(--ease-out);
-
-                &:hover {
-                    background-position: 0% 0%;
-                    color: var(--cta-reverse-color-hover);
-                }
-
-                &.cta-icon {
-                    grid-template-columns: auto auto;
-                    place-content: center;
-                    align-items: center;
-                    gap: 10px;
-
-                    >span[class^="fb_"] {
-                        position: relative;
-                        font-size: 1.25rem;
-                    }
-                }
-            }
-
-            /* Outline variation */
-            &.cta-outline {
-                background-size: 201% 100%;
-                background-position: 100% 0%;
-                transition: background-position 0.34s var(--ease-in-out), color 0.25s var(--ease-out);
-
-                &:hover {
-                    background-position: 0% 0%;
-                }
-
-                &.cta-outline--primary {
-                    background-image: linear-gradient(to right, var(--cta-outline-primary-bg-hover) 0%, var(--cta-outline-primary-bg-hover) 50%, var(--cta-outline-primary-bg) 50%, var(--cta-outline-primary-bg) 100%);
-                    border-color: var(--cta-outline-primary-border);
-                    color: var(--cta-outline-primary-color);
-
-                    &:hover {
-                        color: var(--cta-outline-primary-color-hover);
-                    }
-                }
-
-                &.cta-outline--reverse {
-                    background-image: linear-gradient(to right, var(--cta-outline-reverse-bg-hover) 0%, var(--cta-outline-reverse-bg-hover) 50%, var(--cta-outline-reverse-bg) 50%, var(--cta-outline-reverse-bg) 100%);
-                    border-color: var(--cta-outline-reverse-border);
-                    color: var(--cta-outline-reverse-color);
-
-                    &:hover {
-                        color: var(--cta-outline-reverse-color-hover);
-                    }
-                }
-
-                &.cta-icon {
-                    grid-template-columns: auto auto;
-                    place-content: center;
-                    align-items: center;
-                    gap: 10px;
-
-                    >span[class^="fb_"] {
-                        position: relative;
-                        font-size: 1.25rem;
-                    }
-                }
-            }
         }
 
         &.cta-inline {
@@ -988,10 +917,6 @@
         body {
             scrollbar-color: var(--sb-thumb-color);
         }
-    }
-
-    .compensate-for-scrollbar {
-        margin-right: 0 !important;
     }
 
     .content-wrap {
