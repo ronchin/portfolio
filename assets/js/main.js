@@ -56,9 +56,6 @@ const updateWindowSizes = () => {
     window.is_desktop_larger = (window.window_width >= 1500);
 }
 
-//Anime.js - https://animejs.com/documentation/
-const { animate, createTimeline, utils, createAnimatable, onScroll, text, stagger } = anime;
-
 // Lenis.js - smooth scroller
 const lenis = new Lenis({
     smoothWheel: true,
@@ -88,6 +85,8 @@ const init = () => {
     // Update window sizes to ensure correct values after DOM load
     updateWindowSizes();
 
+    // Setup GSAP rotation for the special title words
+    setupSpecialTitleRotation();
 }
 
 // Document ready
@@ -97,3 +96,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Update window sizes on resize
 window.smartresize(updateWindowSizes);
+
+
+function setupSpecialTitleRotation() {
+    const target = document.querySelector('.the-title .special-title');
+    if (!target) return;
+
+    // Parole da ciclare
+    const words = ['hotel', 'B\u0026B', 'resort', 'spa'];
+
+    const inner = document.createElement('span');
+    inner.className = 'special-title-inner';
+    inner.textContent = words[0];
+
+    target.textContent = '';
+    target.appendChild(inner);
+
+    gsap.set(target, { overflow: 'hidden', display: 'inline-block' });
+    gsap.set(inner, { display: 'inline-block', yPercent: 0, willChange: 'transform' });
+
+    let index = 0;
+    const intervalSeconds = 3;
+    const outDuration = 0.5;
+    const inDuration = 0.6;
+    const pause = Math.max(0, intervalSeconds - (outDuration + inDuration));
+
+    const startTimeline = () => {
+        const tl = gsap.timeline({ repeat: -1 });
+        tl.to(inner, { yPercent: -100, duration: outDuration, ease: 'power2.in' })
+            .add(() => {
+                index = (index + 1) % words.length;
+                inner.textContent = words[index];
+                gsap.set(inner, { yPercent: 100 });
+            })
+            .to(inner, { yPercent: 0, duration: inDuration, ease: 'power2.out' })
+            .to({}, { duration: pause });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) tl.pause(); else tl.resume();
+        });
+    };
+    startTimeline();
+}
