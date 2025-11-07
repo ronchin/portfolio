@@ -318,12 +318,12 @@
             border: 1px solid var(--grey-goose);
             border-radius: 50px;
             display: inline-block;
-            inline-size: 250px;
+            inline-size: clamp(300px, 10vw + 250px, 400px);
             overflow: hidden;
             white-space: nowrap;
             text-align: center;
             line-height: 1em;
-            block-size: 1em;
+            block-size: 1.125em;
             padding-inline: 36px;
             padding-block: 0;
             top: 11px;
@@ -1086,6 +1086,10 @@
         .service__left {
             .the-title {
                 line-height: 120%;
+
+                @media (--mobile-only) {
+                    text-align: center;
+                }
             }
 
             .service__stack {
@@ -1095,6 +1099,10 @@
                     display: flex;
                     flex-wrap: wrap;
                     gap: 25px;
+
+                    @media (--mobile-only) {
+                        justify-content: center;
+                    }
                 }
 
                 .the-title--small strong {
@@ -1148,6 +1156,11 @@
                 display: flex;
                 flex-direction: column;
                 gap: 18px;
+
+                @media (--mobile-only) {
+                    max-inline-size: 460px;
+                    margin-inline: auto;
+                }
             }
 
             .service__item {
@@ -1176,7 +1189,6 @@
         }
     }
 
-    /* About/Experience section */
     section.about-section {
         .about__wrap {
             display: grid;
@@ -1304,7 +1316,7 @@
             gap: 20px 40px;
 
             @media (--desktop) {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(3, 1fr);
                 align-items: start;
             }
         }

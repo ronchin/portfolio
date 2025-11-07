@@ -102,8 +102,14 @@ function setupSpecialTitleRotation() {
     const target = document.querySelector('.the-title .special-title');
     if (!target) return;
 
-    // Parole da ciclare
-    const words = ['hotel', 'B\u0026B', 'resort', 'spa'];
+    const words = [
+        'su misura',
+        'performanti',
+        'sicuri',
+        'multilingua',
+        'ottimizzati',
+        'accessibili',
+    ];
 
     const inner = document.createElement('span');
     inner.className = 'special-title-inner';
